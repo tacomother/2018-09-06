@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Scenery
+    link(rel="stylesheet", href="../css/main.css")
+  body
+    .top
+      .stars
+        - for (var i = 1; i <= 30; i++)
+          .star
+      .shooting-star
+      .clouds
+        .cloud
+        .cloud
+        .cloud
+      .sun
+        .sun-glow-1
+        .sun-glow-2
+        .sun-glow-3
+      .pyramids
+        - for (var i = 1; i <= 4; i++)
+          .pyramid
+    .bottom
+      .boat
+        .boat-bottom
+          .squares
+            - for (var i = 1; i <= 4; i++)
+              .square
+        .boat-behind
+        .boat-top-left
+        .boat-top-right
+      .boat
+        .boat-bottom
+          .squares
+            - for (var i = 1; i <= 4; i++)
+              .square
+        .boat-behind
+        .boat-top-left
+        .boat-top-right
+      .boat
+        .boat-bottom
+          .squares
+            - for (var i = 1; i <= 4; i++)
+              .square
+        .boat-behind
+        .boat-top-left
+        .boat-top-right
+      .main-sun-reflexion
+        - for (var i = 1; i <= 20; i++)
+          .reflexion-shape
+      .small-sun-reflexions
+        - for (var i = 1; i <= 26; i++)
+          .reflexion
+

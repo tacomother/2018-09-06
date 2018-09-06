@@ -1,0 +1,137 @@
+$background: #1c2f36;
+$lighter-background: #304d5b;
+$moon: #ffd7a3;
+$clouds: #7eacc4;
+
+html {
+  background: $background;
+}
+body {
+  margin: 0;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+body * {
+  position: absolute;
+}
+.main {
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  background-color: $lighter-background;
+  width: 400px;
+  height: 400px;
+  -webkit-clip-path: circle(50% at 50% 50%);
+  clip-path: circle(50% at 50% 50%);
+  position: absolute;
+}
+.moon-group {
+  width: 200px;
+  height: 200px;
+  top: 100px;
+  left: 100px;
+  z-index: 3;
+}
+.moon {
+  position: absolute;
+  border-radius: 50%;
+  width: 170px;
+  height: 170px;
+  right: -30px;
+  top: -30px;
+  box-shadow: -45px 45px 0 40px $moon;
+  z-index: 2;
+}
+.moon-shadow {
+  position: absolute;
+  width: 200px;
+  height: 215px;
+  transform: rotate(225deg);
+  background-color: rgba($background, 0.4);
+  top: 100px;
+  left: 100px;
+  clip-path: polygon(0% 0%, 100% 0, 65% 50%, 85% 100%, 0% 100%);
+  z-index: 1;
+}
+.cloud-group-1 {
+  width: 170px;
+  height: 35px;
+  bottom: 100px;
+  left: 50px;
+  z-index: 4;
+}
+.cloud-group-2 {
+  width: 170px;
+  height: 35px;
+  top: 140px;
+  left: 120px;
+  z-index: 2;
+}
+.cloud {
+  background-color: $clouds;
+  width: 170px;
+  height: 35px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  z-index: 2;
+  &:after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    background-color: $clouds;
+    top: -15px;
+    right: 20px;
+    box-shadow: -40px -10px 0 8px $clouds, -80px -5px 0 1px $clouds;
+  }
+}
+.cloud-group-1 .cloud-shadow {
+  top: 35px;
+  right: -125px;
+  z-index: 3;
+}
+.cloud-group-2 .cloud-shadow {
+  top: 35px;
+  right: -125px;
+  z-index: -1;
+}
+.cloud-shadow {
+  position: absolute;
+  height: 250px;
+  width: 170px;
+  transform: skew(45deg);
+  background-color: rgba($background, 0.3);
+}
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 100%;
+  z-index: 1;
+  height: 400px;
+  width: 400px;
+  & .star {
+    border-radius: 50%;
+    background-color: lighten($moon, 10%);
+    opacity: 0.75;
+  }
+  @for $i from 1 through (40) {
+    $top: random(400) + px;
+    $left: random(400) + px;
+    $size: random(10) + px;
+    .star:nth-of-type(#{$i}) {
+      top: $top;
+      left: $left;
+      width: $size;
+      height: $size;
+    }
+  }
+}
